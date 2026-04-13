@@ -1,10 +1,10 @@
 export const TOPICS = [
-  { id: 'tech', label: 'Technology', color: '#2251FF' },
-  { id: 'sustainability', label: 'Sustainability', color: '#00A9CE' },
-  { id: 'leadership', label: 'Leadership', color: '#C4972A' },
-  { id: 'ai', label: 'Artificial Intelligence', color: '#7B2FF7' },
-  { id: 'growth', label: 'Growth & Innovation', color: '#E85D3A' },
-  { id: 'people', label: 'People & Culture', color: '#2A8F6B' },
+  { id: 'tech', label: 'Technology', color: '#4A6FA5' },
+  { id: 'sustainability', label: 'Sustainability', color: '#5A8A7A' },
+  { id: 'leadership', label: 'Leadership', color: '#8A7A5A' },
+  { id: 'ai', label: 'Artificial Intelligence', color: '#6B6B9A' },
+  { id: 'growth', label: 'Growth & Innovation', color: '#8A6A5A' },
+  { id: 'people', label: 'People & Culture', color: '#5A7A6A' },
 ];
 
 export const INDUSTRIES = [
