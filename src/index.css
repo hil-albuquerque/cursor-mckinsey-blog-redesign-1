@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-mckinsey-blue: #051C2C;
+  --color-mckinsey-blue-light: #0A3A5C;
+  --color-mckinsey-accent: #2251FF;
+  --color-mckinsey-teal: #00A9CE;
+  --color-mckinsey-warm: #F4F1ED;
+  --color-mckinsey-warm-dark: #E8E3DB;
+  --color-mckinsey-gold: #C4972A;
+  --color-mckinsey-text: #1A1A1A;
+  --color-mckinsey-text-secondary: #4A4A4A;
+  --color-mckinsey-text-tertiary: #767676;
+  --color-mckinsey-border: #E0DCD5;
+  --color-mckinsey-bg: #FAFAF8;
+  --color-mckinsey-surface: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-mckinsey-text);
+  background-color: var(--color-mckinsey-bg);
+}
+
+::selection {
+  background-color: var(--color-mckinsey-blue);
+  color: white;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
