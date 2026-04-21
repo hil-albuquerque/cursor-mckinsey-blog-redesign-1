@@ -30,7 +30,7 @@ export default function SiteFooter() {
               className="inline-block text-white transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-teal focus-visible:ring-offset-2 focus-visible:ring-offset-mckinsey-blue"
               aria-label="McKinsey Blog — Concept 1 home"
             >
-              <McKinseyLogo className="h-6 w-[180px]" color="#FFFFFF" />
+              <McKinseyLogo className="h-[36px] w-[120px]" color="#FFFFFF" />
             </Link>
             <p className="mt-6 max-w-md font-sans text-sm leading-relaxed text-white/70">
               Ideas and analysis from McKinsey colleagues worldwide—structured for clarity,

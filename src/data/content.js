@@ -299,10 +299,10 @@ export const ARTICLES = [
     date: 'March 18, 2026',
     readTime: '10 min read',
     topic: TOPICS[1],
-    image: img(800, 600, '1509099836639-18ba4a3d2f65'),
+    image: img(800, 600, '1489392191049-fc10c97e64b6'),
     pillar: 'Positive societal impact',
     galleryImages: [
-      img(800, 600, '1509099836639-18ba4a3d2f65'),
+      img(800, 600, '1489392191049-fc10c97e64b6'),
       img(800, 600, '1504384308090-c894fdcc538d'),
       img(800, 600, '1493836512338-37e55930ed73'),
     ],

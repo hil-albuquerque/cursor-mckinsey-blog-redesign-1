@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import McKinseyLogo from '../../../components/McKinseyLogo.jsx';
 import ShareBar from './ShareBar.jsx';
@@ -23,12 +24,29 @@ function ChevronLeft({ className }) {
 }
 
 export default function ArticleNav() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+  const threshold = 8;
+
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    const delta = y - lastY.current;
+    if (y < 60) {
+      setHidden(false);
+    } else if (delta > threshold) {
+      setHidden(true);
+    } else if (delta < -threshold) {
+      setHidden(false);
+    }
+    lastY.current = y;
+  });
+
   return (
     <motion.header
-      className="sticky top-0 z-40 border-b border-mckinsey-border/80 bg-mckinsey-surface/85 backdrop-blur-md supports-[backdrop-filter]:bg-mckinsey-surface/75"
-      initial={{ y: -10, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-40 border-b border-[#d9d9d9] bg-white"
+      initial={{ y: 0 }}
+      animate={{ y: hidden ? '-100%' : '0%' }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       role="banner"
     >
       <div className="mx-auto grid max-w-[1440px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-3 sm:px-6 lg:px-10">
@@ -44,9 +62,9 @@ export default function ArticleNav() {
         <Link
           to="/concept-1"
           className="justify-self-center text-mckinsey-blue transition-opacity hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-accent focus-visible:ring-offset-2"
-          aria-label="McKinsey Blog — Concept 1 home"
+          aria-label="McKinsey & Company — Home"
         >
-          <McKinseyLogo className="h-5 w-[150px] sm:h-6 sm:w-[170px]" color="#051C2C" />
+          <McKinseyLogo className="h-[30px] w-[100px] sm:h-[34px] sm:w-[110px]" color="#051C2C" />
         </Link>
         <div className="flex min-w-0 justify-end overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <ShareBar vertical={false} />

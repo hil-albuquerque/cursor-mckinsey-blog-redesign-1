@@ -84,7 +84,7 @@ function PlayIcon({ className }) {
 function FeatureCard({ article }) {
   return (
     <Link to={path(article.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${article.title}`}>
-      <motion.article className="relative flex h-full min-h-[300px] overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-blue lg:min-h-[380px]" variants={cardHover} initial="rest" whileHover="hover">
+      <motion.article className="relative flex h-full min-h-[280px] overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-blue lg:min-h-[320px]" variants={cardHover} initial="rest" whileHover="hover">
         <div className="absolute inset-0">
           <img src={article.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-mckinsey-blue via-mckinsey-blue/50 to-mckinsey-blue/10" />
@@ -108,17 +108,17 @@ function FeatureCard({ article }) {
 function StandardCard({ article, dense = false }) {
   return (
     <Link to={path(article.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${article.title}`}>
-      <motion.article className="flex h-full min-h-[260px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
-        <div className={`relative shrink-0 overflow-hidden ${dense ? 'h-[40%] min-h-[130px]' : 'h-[44%] min-h-[150px]'}`}>
-          <img src={article.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+      <motion.article className="flex h-full flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
+        <div className={`relative flex-1 overflow-hidden ${dense ? 'min-h-[120px]' : 'min-h-[150px]'}`}>
+          <img src={article.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <div className="absolute left-3 top-3 z-10"><ContentTypeBadge type={article.type} variant="overlay" /></div>
         </div>
-        <div className="flex flex-1 flex-col p-4 md:p-5">
+        <div className="shrink-0 p-4 md:p-5">
           <TopicTag topic={article.topic} size="xs" />
           <h3 className={`mt-2.5 font-serif tracking-tight text-mckinsey-text ${dense ? 'text-base leading-snug md:text-lg' : 'text-lg leading-snug md:text-xl'}`}>{article.title}</h3>
           {article.subtitle && !dense && <p className="mt-2 font-sans text-sm leading-relaxed text-mckinsey-text-secondary line-clamp-2">{article.subtitle}</p>}
-          <div className="mt-auto pt-3"><ArticleMeta author={article.author} date={article.date} readTime={article.readTime} /></div>
+          <div className="pt-3"><ArticleMeta author={article.author} date={article.date} readTime={article.readTime} /></div>
         </div>
       </motion.article>
     </Link>
@@ -129,7 +129,7 @@ function MediaCard({ article }) {
   const isVid = article.isVideo || article.type === 'video';
   return (
     <Link to={path(article.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${article.title}`}>
-      <motion.article className="relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-blue text-white" variants={cardHover} initial="rest" whileHover="hover">
+      <motion.article className="relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-blue text-white" variants={cardHover} initial="rest" whileHover="hover">
         <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden">
           <img src={article.image} alt="" className="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-mckinsey-blue via-mckinsey-blue/40 to-mckinsey-blue/15" />
@@ -157,7 +157,7 @@ function InsightCard({ article }) {
   const stat = Array.isArray(article.keyTakeaways) && article.keyTakeaways.length > 0 ? article.keyTakeaways[0] : null;
   return (
     <Link to={path(article.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${article.title}`}>
-      <motion.article className="flex h-full min-h-[240px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-warm/50 md:flex-row" variants={cardHover} initial="rest" whileHover="hover">
+      <motion.article className="flex h-full min-h-[200px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-warm/50 md:flex-row" variants={cardHover} initial="rest" whileHover="hover">
         <div className="relative h-32 shrink-0 overflow-hidden md:h-auto md:w-[36%] md:max-w-[200px]">
           <img src={article.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
           <div className="absolute left-2 top-2"><ContentTypeBadge type={article.type} variant="overlay" /></div>
@@ -176,19 +176,22 @@ function InsightCard({ article }) {
 function CompactCard({ article }) {
   return (
     <Link to={path(article.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${article.title}`}>
-      <motion.article className="flex h-full min-h-[180px] flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface md:min-h-[200px]" variants={cardHover} initial="rest" whileHover="hover">
-        <div className="relative flex flex-1 flex-col md:flex-row">
-          <div className="relative h-36 shrink-0 overflow-hidden md:h-auto md:w-2/5">
-            <img src={article.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
-            <div className="absolute left-2.5 top-2.5 z-10"><ContentTypeBadge type={article.type} variant="overlay" /></div>
-          </div>
+      <motion.div className="h-full overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
+        <div className="flex h-full min-h-[140px] flex-row">
+          <div
+            className="w-[40%] shrink-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            style={{ backgroundImage: `url(${article.image})` }}
+            role="img"
+            aria-hidden="true"
+          />
           <div className="flex flex-1 flex-col justify-center p-3.5 md:p-4">
+            <ContentTypeBadge type={article.type} variant="overlay" />
             <TopicTag topic={article.topic} size="xs" />
-            <h3 className="mt-2 font-serif text-sm leading-snug tracking-tight text-mckinsey-text line-clamp-3 md:text-base">{article.title}</h3>
-            <div className="mt-2.5"><ArticleMeta author={article.author} date={article.date} readTime={article.readTime} /></div>
+            <h3 className="mt-1.5 font-serif text-sm leading-snug tracking-tight text-mckinsey-text line-clamp-2 md:text-base">{article.title}</h3>
+            <div className="mt-2"><ArticleMeta author={article.author} date={article.date} readTime={article.readTime} /></div>
           </div>
         </div>
-      </motion.article>
+      </motion.div>
     </Link>
   );
 }
@@ -322,24 +325,21 @@ function ExploreThemes() {
               className="group relative flex flex-col overflow-hidden rounded-lg border border-mckinsey-border bg-mckinsey-bg transition-colors hover:border-mckinsey-blue/20 hover:bg-mckinsey-warm/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2"
               aria-label={`${topic.label}: ${lead.title}`}
             >
-              <div className="relative h-24 overflow-hidden sm:h-28">
+              <div className="relative h-36 overflow-hidden sm:h-44">
                 <img
                   src={lead.image}
                   alt=""
-                  className="h-full w-full object-cover opacity-75 transition-all duration-700 ease-out group-hover:opacity-90 group-hover:scale-[1.06]"
+                  className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-mckinsey-bg via-mckinsey-bg/30 to-transparent group-hover:from-mckinsey-warm/80" />
               </div>
-              <div className="flex flex-1 flex-col px-3.5 py-3">
+              <div className="flex flex-1 flex-col justify-center px-3.5 py-2.5">
                 <span className="font-serif text-base font-medium tracking-tight text-mckinsey-blue lg:text-lg">
                   {topic.label}
                 </span>
                 <span className="mt-1 font-sans text-[11px] text-mckinsey-text-tertiary">
                   {count} {count === 1 ? 'story' : 'stories'}
                 </span>
-              </div>
-              <div className="px-3.5 pb-3">
-                <span className="inline-flex items-center gap-1 font-sans text-[11px] font-medium text-mckinsey-text-tertiary transition-colors group-hover:text-mckinsey-blue">
+                <span className="mt-2 inline-flex items-center gap-1 font-sans text-[11px] font-medium text-mckinsey-text-tertiary transition-colors group-hover:text-mckinsey-blue">
                   Explore <ArrowIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
@@ -377,12 +377,12 @@ function TrendingSection() {
         whileInView="show"
         viewport={{ once: true, margin: '-40px' }}
       >
-        <motion.div className="lg:col-span-7 lg:row-span-2 lg:min-h-[380px]" variants={staggerChild}>
+        <motion.div className="lg:col-span-7 lg:row-span-2" variants={staggerChild}>
           <CardByType article={items[0]} />
         </motion.div>
-        <motion.div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:col-span-5 lg:row-span-2 lg:grid-cols-1 lg:gap-5">
-          <motion.div className="min-h-[200px]" variants={staggerChild}><CompactCard article={items[1]} /></motion.div>
-          <motion.div className="min-h-[200px]" variants={staggerChild}><CompactCard article={items[2]} /></motion.div>
+        <motion.div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-4 lg:col-span-5 lg:row-span-2 lg:grid-cols-1 lg:gap-4">
+          <motion.div variants={staggerChild}><CompactCard article={items[1]} /></motion.div>
+          <motion.div variants={staggerChild}><CompactCard article={items[2]} /></motion.div>
         </motion.div>
         <motion.div className="lg:col-span-6" variants={staggerChild}><CardByType article={items[3]} /></motion.div>
         <motion.div className="lg:col-span-6" variants={staggerChild}><CardByType article={items[4]} /></motion.div>
@@ -445,21 +445,20 @@ function ImmersiveThemeSection() {
                 aria-label={`${topic.label}: ${lead.title}`}
               >
                 <article className="relative flex h-[360px] flex-col overflow-hidden rounded-xl border border-white/8 bg-white/5 transition-colors group-hover:bg-white/8 sm:h-[400px]">
-                  <div className="relative h-[50%] overflow-hidden">
-                    <img src={lead.image} alt="" className="h-full w-full object-cover opacity-70 transition-all duration-700 group-hover:opacity-85 group-hover:scale-[1.06]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-mckinsey-blue to-transparent" />
+                  <div className="relative h-[200px] shrink-0 overflow-hidden sm:h-[220px]">
+                    <img src={lead.image} alt="" className="h-full w-full object-cover transition-all duration-700 group-hover:scale-[1.06]" />
                   </div>
-                  <div className="flex flex-1 flex-col justify-end p-5">
-                    <span className="font-sans text-[11px] font-medium uppercase tracking-wider text-white/35">
+                  <div className="flex flex-1 flex-col px-5 py-4">
+                    <span className="font-sans text-[11px] font-medium uppercase tracking-wider text-white/40">
                       {count} {count === 1 ? 'story' : 'stories'}
                     </span>
-                    <h3 className="mt-2 font-serif text-xl leading-tight tracking-tight text-white sm:text-[1.375rem]">
+                    <h3 className="mt-1.5 font-serif text-xl leading-tight tracking-tight text-white sm:text-[1.375rem]">
                       {topic.label}
                     </h3>
-                    <p className="mt-2 font-sans text-xs leading-relaxed text-white/45 line-clamp-2">
+                    <p className="mt-1.5 font-sans text-xs leading-relaxed text-white/45 line-clamp-2">
                       {lead.title}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 font-sans text-[11px] font-medium text-white/50 transition-colors group-hover:text-white/80">
+                    <span className="mt-auto inline-flex items-center gap-1.5 font-sans text-[11px] font-medium text-white/50 transition-colors group-hover:text-white/80">
                       Enter <ArrowIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
@@ -496,24 +495,23 @@ function PillarSection({ pillar, index }) {
         <div className="grid grid-cols-1 gap-4 md:gap-5 lg:grid-cols-12 lg:gap-5">
           <div className="lg:col-span-8">
             <Link to={path(primary.id)} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2" aria-label={`Read ${primary.title}`}>
-              <motion.article className="relative flex min-h-[340px] overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-blue lg:min-h-[380px]" variants={cardHover} initial="rest" whileHover="hover">
-                <div className="absolute inset-0">
+              <motion.article className="flex h-full flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
+                <div className="relative h-[220px] shrink-0 overflow-hidden sm:h-[260px]">
                   <img src={primary.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-mckinsey-blue/90 via-mckinsey-blue/40 to-mckinsey-blue/10" />
+                  <div className="absolute left-4 top-4 z-10 flex gap-2">
+                    <ContentTypeBadge type={primary.type} variant="overlay" />
+                  </div>
                 </div>
-                <div className="absolute left-4 top-4 z-10 flex gap-2">
-                  <ContentTypeBadge type={primary.type} variant="overlay" />
+                <div className="flex flex-1 flex-col p-5 md:p-6">
                   <TopicTag topic={primary.topic} size="xs" />
-                </div>
-                <div className="relative z-10 mt-auto w-full p-5 text-white md:p-7">
-                  <h3 className="font-serif text-xl leading-snug tracking-tight text-white md:text-2xl lg:text-[1.65rem]">{primary.title}</h3>
-                  {primary.subtitle && <p className="mt-2 max-w-2xl font-sans text-sm leading-relaxed text-white/70 line-clamp-2">{primary.subtitle}</p>}
-                  <div className="mt-4 border-t border-white/15 pt-4"><ArticleMeta author={primary.author} date={primary.date} readTime={primary.readTime} light /></div>
+                  <h3 className="mt-2 font-serif text-xl leading-snug tracking-tight text-mckinsey-text md:text-2xl">{primary.title}</h3>
+                  {primary.subtitle && <p className="mt-2 font-sans text-sm leading-relaxed text-mckinsey-text-secondary line-clamp-2">{primary.subtitle}</p>}
+                  <div className="mt-auto pt-4"><ArticleMeta author={primary.author} date={primary.date} readTime={primary.readTime} /></div>
                 </div>
               </motion.article>
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:col-span-4 lg:grid-cols-1 lg:gap-5">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:col-span-4 lg:grid-cols-1 lg:gap-4">
             {secondary.map((a) => <CompactCard key={a.id} article={a} />)}
           </div>
         </div>
@@ -595,16 +593,15 @@ function FromOurPeople() {
           {people.map((a) => (
             <motion.div key={a.id} variants={staggerChild}>
               <Link to={path(a.id)} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-mckinsey-blue/40 focus-visible:ring-offset-2 focus-visible:ring-offset-mckinsey-warm" aria-label={`Read ${a.title}`}>
-                <motion.article className="flex h-full flex-col overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
-                  <div className="relative aspect-[4/5] max-h-[380px] w-full overflow-hidden">
+                <motion.article className="h-[480px] overflow-hidden rounded-xl border border-mckinsey-border bg-mckinsey-surface" variants={cardHover} initial="rest" whileHover="hover">
+                  <div className="relative h-[300px] w-full overflow-hidden">
                     <img src={a.author?.image || a.image} alt="" className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-mckinsey-blue/40 via-transparent to-transparent" />
                     <div className="absolute left-3 top-3"><ContentTypeBadge type={a.type} variant="overlay" /></div>
                   </div>
-                  <div className="flex flex-1 flex-col p-5">
+                  <div className="p-5">
                     <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.15em] text-mckinsey-text-tertiary">{a.author?.name}</p>
                     <p className="mt-0.5 font-sans text-[11px] text-mckinsey-text-tertiary">{a.author?.role}</p>
-                    <h3 className="mt-3 font-serif text-lg leading-snug tracking-tight text-mckinsey-text">{a.title}</h3>
+                    <h3 className="mt-3 font-serif text-lg leading-snug tracking-tight text-mckinsey-text line-clamp-2">{a.title}</h3>
                     <p className="mt-1.5 font-sans text-sm text-mckinsey-text-secondary line-clamp-2">{a.subtitle}</p>
                   </div>
                 </motion.article>
@@ -629,7 +626,7 @@ function Recommended() {
       </div>
       <motion.div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-60px' }}>
         {RECOMMENDED.map((a) => (
-          <motion.div key={a.id} variants={staggerChild} className="min-h-[260px]">
+          <motion.div key={a.id} variants={staggerChild}>
             <StandardCard article={a} dense />
           </motion.div>
         ))}

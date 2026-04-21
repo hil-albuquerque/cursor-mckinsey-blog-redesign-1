@@ -1,28 +1,33 @@
 export default function McKinseyLogo({ className = '', color = 'currentColor' }) {
   return (
-    <svg className={className} viewBox="0 0 180 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className={className}
+      viewBox="0 0 140 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="McKinsey & Company"
+    >
       <text
         x="0"
-        y="18"
-        fontFamily="'Inter', sans-serif"
-        fontWeight="700"
-        fontSize="16"
-        letterSpacing="0.15em"
+        y="16"
+        fontFamily="'Playfair Display', Georgia, serif"
+        fontWeight="600"
+        fontSize="18"
+        letterSpacing="0.02em"
         fill={color}
       >
-        McKINSEY
+        McKinsey
       </text>
       <text
-        x="120"
-        y="18"
-        fontFamily="'Inter', sans-serif"
+        x="0"
+        y="31"
+        fontFamily="'Playfair Display', Georgia, serif"
         fontWeight="400"
-        fontSize="11"
-        letterSpacing="0.08em"
+        fontSize="13"
+        letterSpacing="0.04em"
         fill={color}
-        opacity="0.7"
       >
-        BLOG
+        &amp; Company
       </text>
     </svg>
   );
