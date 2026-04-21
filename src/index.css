@@ -1,8 +1,44 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Bower';
+  src: url('/fonts/Bower-Bold.woff2') format('woff2'),
+       url('/fonts/Bower-Bold.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'McKinsey Sans';
+  src: url('/fonts/McKinseySans-Light.woff2') format('woff2'),
+       url('/fonts/McKinseySans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'McKinsey Sans';
+  src: url('/fonts/McKinseySans-Regular.woff2') format('woff2'),
+       url('/fonts/McKinseySans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'McKinsey Sans';
+  src: url('/fonts/McKinseySans-Medium.woff2') format('woff2'),
+       url('/fonts/McKinseySans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Bower', Georgia, serif;
+  --font-sans: 'McKinsey Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --color-mckinsey-blue: #051C2C;
   --color-mckinsey-blue-light: #0A3A5C;
   --color-mckinsey-accent: #2251FF;
