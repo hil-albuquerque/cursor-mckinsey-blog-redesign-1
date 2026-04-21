@@ -108,8 +108,132 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* UX Strategy & Design Rationale */}
+      <section className="border-t border-mckinsey-border">
+        <div className="max-w-3xl mx-auto px-6 py-16 md:py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-mckinsey-text-tertiary mb-3">
+              Background
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-mckinsey-blue leading-tight">
+              UX Strategy & Design Rationale
+            </h2>
+
+            <div className="mt-10 space-y-10">
+              <div>
+                <h3 className="font-serif text-xl text-mckinsey-blue mb-3">The opportunity</h3>
+                <p className="text-mckinsey-text-secondary leading-relaxed">
+                  The current McKinsey Blog is functional and professional, yet it reads as a chronological
+                  archive rather than a destination. There is no visual hierarchy between stories, limited
+                  differentiation by content type, and few pathways that encourage deeper exploration.
+                  The opportunity is to transform it into a dynamic editorial platform that reflects the
+                  caliber of McKinsey's thinking.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-xl text-mckinsey-blue mb-3">Content strategy</h3>
+                <p className="text-mckinsey-text-secondary leading-relaxed mb-4">
+                  Rather than presenting posts in reverse-chronological order, the redesign proposes a
+                  curated, theme-driven experience organized around three strategic pillars:
+                </p>
+                <ul className="space-y-2 ml-1">
+                  {[
+                    'Technology and innovation — positioning McKinsey at the frontier of enterprise transformation',
+                    'Societal impact — elevating work in sustainability, inclusion, and global development',
+                    'Leadership and people — surfacing the human stories behind the firm\'s expertise',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-mckinsey-text-secondary leading-relaxed">
+                      <span className="mt-2 w-1 h-1 rounded-full bg-mckinsey-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-mckinsey-text-secondary leading-relaxed">
+                  This shift enables deeper engagement through multiple entry points, editorial
+                  curation, and recirculation patterns that keep readers within the ecosystem.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-xl text-mckinsey-blue mb-3">Three design directions</h3>
+                <p className="text-mckinsey-text-secondary leading-relaxed mb-4">
+                  To test different approaches to organizing and presenting this content, three
+                  distinct concepts were developed — each exploring a different balance of structure,
+                  expression, and editorial voice:
+                </p>
+                <div className="space-y-4 border-l-2 border-mckinsey-border pl-5">
+                  {[
+                    { label: 'Modular / Bento', desc: 'A grid-based system that uses layout weight and card hierarchy to signal editorial importance — structured, scalable, and flexible.' },
+                    { label: 'Editorial / Magazine', desc: 'A typographically-led experience that channels the authority of the world\'s finest publications — clean, precise, and word-driven.' },
+                    { label: 'Immersive / Storytelling', desc: 'A cinematic, scroll-driven approach with rich imagery and narrative pacing — expressive, engaging, and destination-worthy.' },
+                  ].map((item, i) => (
+                    <div key={i}>
+                      <p className="font-medium text-sm text-mckinsey-blue">{item.label}</p>
+                      <p className="text-sm text-mckinsey-text-secondary leading-relaxed mt-1">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-xl text-mckinsey-blue mb-3">Iteration and synthesis</h3>
+                <p className="text-mckinsey-text-secondary leading-relaxed">
+                  Through iteration, elements from all three directions were evaluated for their
+                  ability to serve McKinsey's content at scale. The refined direction — Concept 1 —
+                  represents a hybrid approach: a modular system that provides the structure and
+                  scalability needed for a publishing platform, combined with selective immersive
+                  storytelling moments that drive engagement and emotional connection.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-xl text-mckinsey-blue mb-3">What this experience communicates</h3>
+                <p className="text-mckinsey-text-secondary leading-relaxed">
+                  The redesigned experience aims to convey a modern, authoritative, and editorial voice —
+                  balancing clarity with richness. It positions the blog not as a feed to scroll past,
+                  but as a platform that invites exploration, rewards curiosity, and reflects the depth
+                  of McKinsey's intellectual contribution.
+                </p>
+              </div>
+            </div>
+
+            {/* Transition to concepts */}
+            <div className="mt-14 pt-8 border-t border-mckinsey-border flex flex-col items-center text-center">
+              <p className="text-sm font-medium tracking-wide uppercase text-mckinsey-text-tertiary mb-2">
+                Explore the three directions
+              </p>
+              <a
+                href="#concepts"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('concepts')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group inline-flex flex-col items-center gap-1 text-mckinsey-blue hover:text-mckinsey-blue/70 transition-colors"
+              >
+                <span className="text-base font-serif">Concept 1 · Concept 2 · Concept 3</span>
+                <svg
+                  className="w-5 h-5 mt-1 animate-bounce"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Concept Cards */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
+      <section id="concepts" className="max-w-6xl mx-auto px-6 pb-20 scroll-mt-8">
         <div className="space-y-8 md:space-y-12">
           {concepts.map((concept, i) => (
             <motion.div
